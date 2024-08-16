@@ -235,6 +235,10 @@ try {
         );
         xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
         xhttp.send("name=" + name + "&email=" + email + "&subject=" + subject + "&comments=" + comments);
+        showSnackbar(
+            "Form submitted successfully! Thank you for your input."
+        );
+
         return false;
     }
 
@@ -319,6 +323,7 @@ try {
         "phoneNumber=" +
             phoneNumber
         );
+        showSnackbar("Your phone number has been submitted successfully!");
         return false;
     }
 
@@ -335,3 +340,29 @@ try {
         }, 200);
     }
 } catch (error) {}
+
+
+try {
+    function showSnackbar(string) {
+    var snackbar = document.getElementById("snackbar");
+    var message = document.getElementById("message");
+    message.innerHTML = string;
+    snackbar.classList.remove("hidden");
+    snackbar.classList.add("flex");
+
+    setTimeout(function () {
+        snackbar.style.display = "none";
+        snackbar.classList.add("hidden");
+        snackbar.classList.remove("flex");
+
+    }, 2000); // Close the Snackbar after 3 seconds (adjust as needed)
+}
+
+function closeSnackbar() {
+  var snackbar = document.getElementById("snackbar");
+    snackbar.classList.add("hidden");
+    snackbar.classList.remove("flex");
+}
+} catch (error) {
+
+}
