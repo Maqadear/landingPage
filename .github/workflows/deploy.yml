@@ -23,6 +23,9 @@ jobs:
     - name: Build project with Gulp
       run: npx gulp build  # Replace 'build' with your Gulp task name if different
 
+    - name: Create CNAME file
+      run: echo 'maqadear.store' > ./dist/CNAME  # Replace with your custom domain
+      
     - name: Deploy to GitHub Pages
       uses: peaceiris/actions-gh-pages@v4  # Updated to v4
       with:
