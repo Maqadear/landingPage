@@ -228,7 +228,11 @@ try {
                 document.forms["myForm"]["comments"].value = "";
             }
         };
-        xhttp.open("POST", "https://hook.eu2.make.com/h2q2g4khnbq9297v4e5lvvuextp3yku3", true);
+        xhttp.open(
+          "POST",
+          "https://hook.eu2.make.com/fn4bwu6borf6a2ojzxkthjmn49lyioiw",
+          true
+        );
         xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
         xhttp.send("name=" + name + "&email=" + email + "&subject=" + subject + "&comments=" + comments);
         return false;
