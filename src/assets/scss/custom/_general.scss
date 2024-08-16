@@ -16,3 +16,15 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
 p {
     @apply leading-relaxed;
 }
+
+input[type="number"] {
+    // Hide number input arrows for Webkit browsers
+    &::-webkit-inner-spin-button,
+    &::-webkit-outer-spin-button {
+        -webkit-appearance: none;
+        margin: 0;
+    }
+
+    // Hide number input arrows for Firefox
+    -moz-appearance: textfield;
+}
