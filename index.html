@@ -113,12 +113,13 @@
                     <p class="text-slate-400 text-lg max-w-xl mx-auto">Personalize your meal kits to match your diet and sensitivities. Fresh, delicious, and effortlessly simple!</p>
 
                     <div class="subcribe-form mt-6 mb-3">
-                        <form class="relative max-w-lg mx-auto">
+                        <p class="mb-0" id="error-msg-phoneNumber"></p>
+                        <form class="relative max-w-lg mx-auto" id="subcribe" name="subcribe" onsubmit="return validateFormPhoneNumber()">
                             <i data-feather="phone" class="size-4 absolute top-[17px] start-5 text-slate-400"></i>
-                            <input type="text" id="subcribe" name="text"
+                            <input type="number" id="phoneNumber" name="phoneNumber"
                                 class="form-input border-0 py-4 ps-12 pe-12 w-full h-[50px] outline-none text-black dark:text-white rounded-full bg-white dark:bg-slate-900 shadow dark:shadow-gray-800 focus:border-0 focus:ring-0"
                                 placeholder="Your Phone Number :">
-                            <button type="submit"
+                            <button type="submit" 
                                 class="size-[46px] inline-flex items-center justify-center rounded-full align-middle absolute top-[2px] end-[3px] bg-red-500 border-red-500 text-white"><i
                                     data-feather="arrow-right" class="size-5"></i></button>
                         </form><!--end form-->
