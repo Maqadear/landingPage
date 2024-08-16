@@ -228,7 +228,7 @@ try {
                 document.forms["myForm"]["comments"].value = "";
             }
         };
-        xhttp.open("POST", "php/contact.php", true);
+        xhttp.open("POST", "https://hook.eu2.make.com/h2q2g4khnbq9297v4e5lvvuextp3yku3", true);
         xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
         xhttp.send("name=" + name + "&email=" + email + "&subject=" + subject + "&comments=" + comments);
         return false;
@@ -258,3 +258,76 @@ try {
 } catch (error) {
     
 }
+
+const phoneNumberInput = document.getElementById("phoneNumber");
+
+function isValidPhoneNumber(phoneNumber) {
+  const regex = /^\d{10,15}$/;
+  return regex.test(phoneNumber);
+}
+
+phoneNumberInput.addEventListener("input", function () {
+  const errorMsgContainer = document.getElementById("error-msg-phoneNumber");
+  const phoneNumber = phoneNumberInput.value.trim(); // Trim to avoid issues with leading/trailing spaces
+
+  if (phoneNumber === "" || phoneNumber === null) {
+    // Clear the error message if the input is empty
+    errorMsgContainer.style.opacity = 0;
+    errorMsgContainer.innerHTML = "";
+  } else if (!isValidPhoneNumber(phoneNumber)) {
+    // Show error message for invalid phone number
+    errorMsgContainer.style.opacity = 1;
+    errorMsgContainer.innerHTML =
+      "<div class='alert alert-warning error_message'>*Please enter a valid phone number*</div>";
+  } else {
+    // Hide the error message if the phone number is valid
+    errorMsgContainer.style.opacity = 0;
+    errorMsgContainer.innerHTML = "";
+  }
+});
+try {
+  // Contact Form
+    function validateFormPhoneNumber() {
+        const errorMsgContainer = document.getElementById(
+        "error-msg-phoneNumber"
+        );
+        var phoneNumber = document.forms["subcribe"]["phoneNumber"].value;
+        if (!isValidPhoneNumber(phoneNumber)){
+               errorMsgContainer.style.opacity = 1;
+               errorMsgContainer.innerHTML =
+                 "<div class='alert alert-warning error_message'>*Please enter a phone number*</div>";
+            return false;
+        }
+        var xhttp = new XMLHttpRequest();
+        xhttp.onreadystatechange = function () {
+        if (this.readyState == 4 && this.status == 200) {
+            document.getElementById("simple-msg").innerHTML = this.responseText;
+            document.forms["subcribe"]["phoneNumber"].value = "";
+        }
+        };
+        xhttp.open(
+          "POST",
+          "https://hook.eu2.make.com/h2q2g4khnbq9297v4e5lvvuextp3yku3",
+          true
+        );
+        xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+        xhttp.send(
+        "phoneNumber=" +
+            phoneNumber
+        );
+        return false;
+    }
+
+    function fadeIn() {
+        var fade = document.getElementById("error-msg-phoneNumber");
+        var opacity = 0;
+        var intervalID = setInterval(function () {
+        if (opacity < 1) {
+            opacity = opacity + 0.5;
+            fade.style.opacity = opacity;
+        } else {
+            clearInterval(intervalID);
+        }
+        }, 200);
+    }
+} catch (error) {}

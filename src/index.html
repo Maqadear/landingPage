@@ -1,15 +1,103 @@
-@@include("partials/main.html")
+<!DOCTYPE html>
+<html lang="en" class="light scroll-smooth" dir="ltr">
 
 <head>
-    @@include("partials/title-meta.html", {"title": "Appever"})
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Maqadear - Your Ultimate Meal Kit Solution</title>
+    <meta name="description" content="Discover Maqadear: Personalized meal kits with pre-portioned ingredients, easy recipes, and local delivery. Perfect for home cooking enthusiasts!">
+    <meta name="keywords" content="meal kit, personalized recipes, home cooking, local ingredients, meal delivery, Maqadear, easy recipes, customizable meal plans">
+    <meta name="author" content="bilker1422">
+    <meta name="website" content="https://maqadear.store/">
+    <meta name="email" content="bilker1422@gmail.com">
+    <meta name="version" content="1..0">
+    <!-- favicon -->
+    <link href="assets/images/Maqadear_20240815_040233.jpg" rel="shortcut icon">
 
     <!-- Css -->
-    @@include("partials/head-css.html")
+    <link href="assets/libs/tobii/css/tobii.min.css" rel="stylesheet">
+    <link href="assets/libs/tiny-slider/tiny-slider.css" rel="stylesheet">
+    <link href="assets/libs/@mdi/font/css/materialdesignicons.min.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="assets/css/tailwind.css">
 </head>
 
-@@include("partials/body.html")
+<body class="font-roboto text-base text-slate-900 dark:text-white dark:bg-slate-900">
+    <!-- Loader Start -->
+    <!-- <div id="preloader">
+        <div id="status">
+            <div class="logo">
+                <img src="assets/images/logo-icon-64.png" class="d-block mx-auto animate-[spin_10s_linear_infinite]" alt="">
+            </div>
+            <div class="justify-content-center">
+                <div class="text-center">
+                    <h4 class="mb-0 mt-2 text-lg font-semibold">Appever</h4>
+                </div>
+            </div>
+        </div>
+    </div> -->
+    <!-- Loader End -->
 
-@@include("partials/navbar/nav-white.html")
+<!-- Navbar Start -->
+<nav class="navbar bg-white dark:bg-slate-900 shadow dark:shadow-gray-800" id="navbar">
+    <div class="container relative flex flex-wrap items-center justify-between">
+        <a class="navbar-brand md:me-8" href="index.html">
+            <h4 class="md:text-3xl text-2xl md:leading-normal leading-normal font-extralight">Maqadear </h4>
+
+        </a>
+
+        <div class="nav-icons flex items-center lg_992:order-2 md:ms-6">
+            <!-- Navbar Button -->
+            <!-- <ul class="list-none menu-social mb-0">
+                <li class="inline">
+                    <a href=""
+                        class="size-8 inline-flex items-center justify-center tracking-wide align-middle duration-500 text-base text-center"><img
+                            src="assets/images/appstore.png" alt=""></a>
+                </li>
+
+                <li class="inline ms-1">
+                    <a href=""
+                        class="size-8 inline-flex items-center justify-center tracking-wide align-middle duration-500 text-base text-center"><img
+                            src="assets/images/playstore.png" alt=""></a>
+                </li>
+            </ul> -->
+            <!-- Navbar Collapse Manu Button -->
+            <button data-collapse="menu-collapse" type="button"
+                class="collapse-btn inline-flex items-center ms-2 text-slate-900 dark:text-white lg_992:hidden"
+                aria-controls="menu-collapse" aria-expanded="false">
+                <span class="sr-only">Navigation Menu</span>
+                <i class="mdi mdi-menu text-[24px]"></i>
+            </button>
+        </div>
+
+        <!-- Navbar Manu -->
+        <div class="navigation lg_992:order-1 lg_992:flex hidden ms-auto" id="menu-collapse">
+            <ul class="navbar-nav" id="navbar-navlist">
+                <li class="nav-item">
+                    <a class="nav-link active" href="#home">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#features">Features</a>
+                </li>
+                <!-- <li class="nav-item">
+                    <a class="nav-link" href="#screenshot">Application</a>
+                </li> -->
+                <li class="nav-item">
+                    <a class="nav-link" href="#faqs">FAQs</a>
+                </li>
+                <!-- <li class="nav-item">
+                    <a class="nav-link" href="#download">Download</a>
+                </li> -->
+                <!-- <li class="nav-item">
+                    <a class="nav-link" href="#reviews">Reviews</a>
+                </li> -->
+                <li class="nav-item">
+                    <a class="nav-link" href="#contact">Contact us</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+<!-- Navbar End -->
 
 <!-- Start Hero -->
 <section class="relative table w-full py-24 overflow-hidden" id="home">
@@ -25,12 +113,13 @@
                     <p class="text-slate-400 text-lg max-w-xl mx-auto">Personalize your meal kits to match your diet and sensitivities. Fresh, delicious, and effortlessly simple!</p>
 
                     <div class="subcribe-form mt-6 mb-3">
-                        <form class="relative max-w-lg mx-auto">
+                        <p class="mb-0" id="error-msg-phoneNumber"></p>
+                        <form class="relative max-w-lg mx-auto" id="subcribe" name="subcribe" onsubmit="return validateFormPhoneNumber()">
                             <i data-feather="phone" class="size-4 absolute top-[17px] start-5 text-slate-400"></i>
-                            <input type="text" id="subcribe" name="text"
+                            <input type="number" id="phoneNumber" name="phoneNumber"
                                 class="form-input border-0 py-4 ps-12 pe-12 w-full h-[50px] outline-none text-black dark:text-white rounded-full bg-white dark:bg-slate-900 shadow dark:shadow-gray-800 focus:border-0 focus:ring-0"
                                 placeholder="Your Phone Number :">
-                            <button type="submit"
+                            <button type="submit" 
                                 class="size-[46px] inline-flex items-center justify-center rounded-full align-middle absolute top-[2px] end-[3px] bg-red-500 border-red-500 text-white"><i
                                     data-feather="arrow-right" class="size-5"></i></button>
                         </form><!--end form-->
@@ -203,20 +292,20 @@
         <div class="grid grid-cols-1 mt-6 relative">
             <div class="tiny-four-item justify-center items-center flex w-full">
                 <div class="tiny-slide p-4">
-                    <a href="assets/images/phone/1.png" class="lightbox">
-                        <img src="assets/images/complate order.jpg" alt="Complete Order">
+                    <a href="assets/images/comformOrder.jpg" class="lightbox">
+                        <img src="assets/images/comformOrder.jpg" >
                     </a>
                 </div>
 
                 <div class="tiny-slide p-4">
-                    <a href="assets/images/phone/2.png" class="lightbox">
-                        <img src="assets/images/order.png" alt="Order">
+                    <a href="assets/images/order.png" class="lightbox">
+                        <img src="assets/images/menu.jpg" >
                     </a>
                 </div>
 
                 <div class="tiny-slide p-4">
-                    <a href="assets/images/phone/3.png" class="lightbox">
-                        <img src="assets/images/tt.jpg" alt="TT">
+                    <a href="assets/images/tt.jpg" class="lightbox">
+                        <img src="assets/images/tt.jpg" >
                     </a>
                 </div>
             </div>
@@ -639,7 +728,41 @@
 </section><!--end section-->
 <!-- End -->
 
-@@include("partials/footer/footer.html")
+<!-- Start Footer -->
+<footer class="py-8  text-black dark:bg-slate-900 dark:text-white shadow dark:shadow-gray-800">
+    <div class="container">
+        <div class="grid items-center">
+            <!-- <div class="md:col-span-8">
+                <a href="#" class="logo-footer">
+                        <h4 class="md:text-3xl text-2xl md:leading-normal leading-normal font-extralight">Maqadear </h4>
+
+                    
+                </a>
+            </div> -->
+
+            <div class="md:col-span-6 md:mt-0 mt-8">
+                <div class="text-center">
+                    <p class="text-gray-400">© <script>document.write(new Date().getFullYear())</script> Maqadear. Design with <i class="mdi mdi-heart text-red-700"></i> by <a href="https://shreethemes.in/" target="_blank" class="text-reset">Maqadear Team</a>.</p>
+                </div>
+            </div>
+
+            <!-- <div class="md:col-span-4 md:mt-0 mt-8"> -->
+                <!-- <ul class="list-none foot-icon ltr:md:text-right rtl:md:text-left text-center">
+                    <li class="inline"><a href="https://1.envato.market/appever" target="_blank" class="size-8 inline-flex items-center justify-center tracking-wide align-middle text-base border border-gray-700 hover:border-red-500 rounded-md text-slate-300 hover:text-white hover:bg-red-500"><i data-feather="shopping-cart" class="h-4 w-4 align-middle" title="Buy Now"></i></a></li>
+                    <li class="inline"><a href="https://dribbble.com/shreethemes" target="_blank" class="size-8 inline-flex items-center justify-center tracking-wide align-middle text-base border border-gray-700 hover:border-red-500 rounded-md text-slate-300 hover:text-white hover:bg-red-500"><i data-feather="dribbble" class="h-4 w-4 align-middle" title="dribbble"></i></a></li>
+                    <li class="inline"><a href="http://linkedin.com/company/shreethemes" target="_blank" class="size-8 inline-flex items-center justify-center tracking-wide align-middle text-base border border-gray-700 hover:border-red-500 rounded-md text-slate-300 hover:text-white hover:bg-red-500"><i data-feather="linkedin" class="h-4 w-4 align-middle" title="Linkedin"></i></a></li>
+                    <li class="inline"><a href="https://www.facebook.com/shreethemes" target="_blank" class="size-8 inline-flex items-center justify-center tracking-wide align-middle text-base border border-gray-700 hover:border-red-500 rounded-md text-slate-300 hover:text-white hover:bg-red-500"><i data-feather="facebook" class="h-4 w-4 align-middle" title="facebook"></i></a></li>
+                    <li class="inline"><a href="https://www.instagram.com/shreethemes/" target="_blank" class="size-8 inline-flex items-center justify-center tracking-wide align-middle text-base border border-gray-700 hover:border-red-500 rounded-md text-slate-300 hover:text-white hover:bg-red-500"><i data-feather="instagram" class="h-4 w-4 align-middle" title="instagram"></i></a></li>
+                    <li class="inline"><a href="https://twitter.com/shreethemes" target="_blank" class="size-8 inline-flex items-center justify-center tracking-wide align-middle text-base border border-gray-700 hover:border-red-500 rounded-md text-slate-300 hover:text-white hover:bg-red-500"><i data-feather="twitter" class="h-4 w-4 align-middle" title="twitter"></i></a></li>
+                    <li class="inline"><a href="mailto:support@shreethemes.in" class="size-8 inline-flex items-center justify-center tracking-wide align-middle text-base border border-gray-700 hover:border-red-500 rounded-md text-slate-300 hover:text-white hover:bg-red-500"><i data-feather="mail" class="h-4 w-4 align-middle" title="email"></i></a></li>
+                </ul> -->
+                <!--end icon-->
+            <!-- </div> -->
+            <!--end col-->
+        </div><!--end row-->
+    </div><!--end container-->
+</footer><!--end footer-->
+<!-- End Footer -->
 
 <!-- Back to top -->
 <a href="#" onclick="topFunction()" id="back-to-top"
@@ -647,11 +770,35 @@
         class="mdi mdi-arrow-up"></i></a>
 <!-- Back to top -->
 
-@@include("partials/switcher.html")
+<!-- Switcher -->
+<div class="fixed top-1/4 -right-2 z-3">
+    <span class="relative inline-block rotate-90">
+        <input type="checkbox" class="checkbox opacity-0 absolute" id="chk" />
+        <label class="label bg-slate-900 dark:bg-white shadow dark:shadow-gray-800 cursor-pointer rounded-full flex justify-between items-center p-1 w-14 h-8" for="chk">
+            <i data-feather="moon" class="size-4 text-yellow-500"></i>
+            <i data-feather="sun" class="size-4 text-yellow-500"></i>
+            <span class="ball bg-white dark:bg-slate-900 rounded-full absolute top-[2px] left-[2px] size-7"></span>
+        </label>
+    </span>
+</div>
+<!-- Switcher -->
+
+<!-- LTR & RTL Mode Code -->
+<!-- <div class="fixed top-1/3 -right-3 z-50">
+    <a href="" id="switchRtl">
+        <span class="py-1 px-3 relative inline-block rounded-t-md -rotate-90 bg-white dark:bg-slate-900 shadow-md dark:shadow dark:shadow-gray-800 font-semibold rtl:block ltr:hidden" >LTR</span>
+        <span class="py-1 px-3 relative inline-block rounded-t-md -rotate-90 bg-white dark:bg-slate-900 shadow-md dark:shadow dark:shadow-gray-800 font-semibold ltr:block rtl:hidden">RTL</span>
+    </a>
+</div> -->
+<!-- LTR & RTL Mode Code -->
 
 <!-- JAVASCRIPTS -->
 <script src="assets/libs/feather-icons/feather.min.js"></script>
-@@include("partials/script-file.html")
+<script src="assets/libs/gumshoejs/gumshoe.polyfills.min.js"></script>
+<script src="assets/libs/tobii/js/tobii.min.js"></script>
+<script src="assets/libs/tiny-slider/min/tiny-slider.js"></script>
+<script src="assets/js/plugins.init.js"></script>
+<script src="assets/js/app.js"></script>
 <!-- JAVASCRIPTS -->
 </body>
 
